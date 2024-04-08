@@ -1,0 +1,133 @@
+body {
+    background-color: #FFA500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+header img {
+    width: 13%;
+    margin-left: 120px;
+    cursor: pointer;
+}
+
+header ul {
+    margin-right: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+header ul li {
+    color: inherit;
+    list-style: none;
+    margin-right: 50px;
+    /* Adjust the margin between list items */
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 19px;
+    transition: color 0.2s, background-color 0.13s, border-color 0.13s, padding 0.5s, border-radius 0.5s;
+    border-bottom: 3px solid transparent;
+}
+
+header ul li:nth-child(5) {
+    margin-top: -15px;
+    color: #fff;
+    padding: 15px;
+    border: 2px solid #856108;
+    border-radius: 10px;
+}
+
+header ul li:nth-child(5):hover {
+    transition: linear .5s;
+    box-shadow: 10px 10px #333;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header ul li:hover a {
+    color: #fff;
+}
+
+header ul li:hover {
+    color: #fff;
+    background-color: #856108;
+    padding: 10px 20px;
+    /* Adjust the padding as needed */
+    border-radius: 9%;
+    border-color: #B8860B;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    /* Center items horizontally */
+    justify-content: center;
+    /* Center items vertically */
+    height: 100vh;
+    /* Make the container take the full height of the viewport */
+    margin-top: -450px;
+}
+
+.smoke {
+    width: 60%;
+    display: flex;
+}
+
+.icons {
+    display: flex;
+    margin-top: 210px;
+}
+
+.icons ul {
+    list-style: none;
+}
+
+.icons ul li {
+    margin-bottom: 30px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: font-size 0.2s, color 0.2s;
+}
+
+.icons ul li:hover {
+    font-size: 34px;
+    color: #856108;
+}
+.top {
+    display: flex;
+    justify-content: center; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+    max-width: 80%;
+}
+
+.drinks{
+    display: flex;
+    background: rgba(209, 132, 132, 0.452);
+    overflow: auto;
+}
+
+.drinks .d1
+{
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; 
+    scroll-behavior: smooth;
+    display: flex;
+}
+.drinks .d1 img{
+   height: 25vh;
+    box-shadow: 2px 2px 8px #121213;
+    margin-right: 14px;
+}
