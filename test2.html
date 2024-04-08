@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drink Selection</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+        }
+        #cost {
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h2>Select Your Drink</h2>
+    <!-- Drink buttons -->
+    <button onclick="updateInput('Tea', 10)">Tea <span id="teaCost">$10</span></button>
+    <button onclick="updateInput('Coffee', 10)">Coffee <span id="coffeeCost">$10</span></button>
+    <button onclick="updateInput('Hot Chocolate', 20)">Hot Chocolate <span id="chocoCost">$20</span></button>
+    <button onclick="updateInput('Hot Lemonade', 15)">Hot Lemonade <span id="lemonadeCost">$15</span></button>
+
+    <!-- Input field to display and edit selected drinks -->
+    <div id="selectedDrinks">
+        <input type="text" id="Drinks" placeholder="Selected Drinks">
+        <button id="resetButton" onclick="clearInput()">Reset</button>
+    </div>
+    <div id="cost">Total Cost: $<span id="totalCost">0</span></div>
+
+    <!-- JavaScript function to update input field -->
+    <script>
+        var totalCost = 0;
+
+        // Function to handle button clicks
+        function updateInput(drinkName, cost) {
+            var drinkInput = document.getElementById('Drinks');
+            var selectedDrinks = document.getElementById('selectedDrinks');
+
+            if (drinkInput.value === '') {
+                drinkInput.value = drinkName;
+            } else {
+                drinkInput.value += ', ' + drinkName;
+            }
+
+            // Create delete button for the newly added item
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'X';
+            deleteButton.onclick = function() {
+                removeItem(drinkName, cost, deleteButton);
+            };
+
+            selectedDrinks.appendChild(deleteButton);
+
+            totalCost += cost;
+            document.getElementById('totalCost').textContent = totalCost;
+
+            // Show the reset button
+            document.getElementById('resetButton').style.display = 'inline-block';
+        }
+
+        // Function to remove item from input field
+        function removeItem(drinkName, cost, deleteButton) {
+            var drinkInput = document.getElementById('Drinks');
+            var items = drinkInput.value.split(', ');
+            var index = items.indexOf(drinkName);
+            if (index !== -1) {
+                items.splice(index, 1);
+                drinkInput.value = items.join(', ');
+                totalCost -= cost;
+                document.getElementById('totalCost').textContent = totalCost;
+
+                // Remove the delete button associated with the item
+                deleteButton.remove();
+            }
+
+            // If there are no items left, hide the reset button
+            if (items.length === 0) {
+                document.getElementById('resetButton').style.display = 'none';
+            }
+        }
+
+        // Function to clear input field and reset total cost
+        function clearInput() {
+            var drinkInput = document.getElementById('Drinks');
+            drinkInput.value = '';
+            totalCost = 0;
+            document.getElementById('totalCost').textContent = totalCost;
+
+            // Remove all delete buttons
+            var selectedDrinks = document.getElementById('selectedDrinks');
+            var deleteButtons = selectedDrinks.querySelectorAll('button');
+            deleteButtons.forEach(function(button) {
+                button.remove();
+            });
+
+            // Hide the reset button
+            document.getElementById('resetButton').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

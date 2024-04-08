@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Show Elements One at a Time</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="man">
+    <i id="pop-man" class="bi bi-emoji-laughing-fill" style="display: none;"></i>
+    <i class="bi bi-emoji-dizzy-fill" style="display: none;"></i>
+    <i class="bi bi-emoji-heart-eyes-fill" style="display: none;"></i>
+</div>
+
+<script>
+    // Get the elements
+    var elements = document.querySelectorAll('.man i');
+
+    // Variable to keep track of current index
+    var currentIndex = 0;
+
+    // Function to show elements one at a time
+    function showNextElement() {
+        // Hide the previously shown element
+        if (currentIndex > 0) {
+            elements[currentIndex - 1].style.display = 'none';
+        }
+        
+        // Show the current element
+        if (currentIndex < elements.length) {
+            elements[currentIndex].style.display = 'inline-block';
+            currentIndex++;
+        } else {
+            // Reset index to loop infinitely
+            currentIndex = 0;
+        }
+    }
+
+    // Call the function initially to show the first element
+    showNextElement();
+
+    // Set interval to show elements one at a time
+    var interval = setInterval(showNextElement, 1000); // Change the interval time (in milliseconds) as per your requirement
+</script>
+
+</body>
+</html>

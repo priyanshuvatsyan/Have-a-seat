@@ -5,11 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 
 <body>
+
+    <div id="popupModal" class="modal">
+        <div class="modal-content">
+
+
+            <div class="man">
+                <img src="/pop_up-removebg-preview.png" alt="">
+            </div>
+            <div class="inputdata">
+                <span class="close" onclick="popupbg()">&times;</span>
+                <h2>Welcome</h2>
+                <input type="text" id="nameInput" placeholder="Priva" onclick="colorChange(this)">
+                <input type="text" id="contactInput" placeholder="7876641139" onclick="colorChange(this)">
+                <button id="submitBtn">Submit</button>
+
+            </div>
+        </div>
+    </div>
+7
     <header>
         <img src="logo-removebg-preview.png" alt="">
         <ul>
@@ -17,7 +37,13 @@
             <li><a href="">Menu</a></li>
             <li><a href="">Offers</a></li>
             <li><a href="">About</a></li>
-            <li><a href="">Online Order</a></li>
+            <li><a href="">Online Order</a>
+            <li><i class="bi-person-circle">
+                    <p><span class="name"></span></p>
+                </i>
+
+            </li>
+            </li>
         </ul>
     </header>
 
@@ -36,93 +62,268 @@
     </div>
 
 
+    <h2 class="menu-heading">Menu</h2>
     <div class="menu">
-        <div class="top">
-            <div class="drinks">
-                <div class="d1">
-                    
-                    <img src="img/coffee.jpeg" alt="">
-                    <h4>hylo</h4>
-                    <h6>10</h6>
-                </div>
+        <div class="menu-content">
+            <div class="container1">
+                <div class="today-special">
+                    <h4>Today's Special </h4>
+                    <h3 id="special-text"></h3>
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img src="/img/today's special 1.jpg" style="width:100%">
+                        </div>
 
-                <div class="d1">
-                    
-                    <img src="img/cold coffee.jpeg" alt="">
-                    <h4>hylo</h4>
-                    <h6>10</h6>
-                </div>
+                        <div class="mySlides fade">
+                            <img src="/img/today's special 2.jpg" style="width:100%">
+                        </div>
 
-                <div class="d1">
-                    <img src="img/Juice.jpeg" alt="">
-
-                    <h4>hylo</h4>
-                    <h6>10</h6>
-                </div>
-
-                <div class="d1">
-                    
-                    <img src="img/summer drinks.jpeg" alt="">
-                    <h4>hylo</h4>
-                    <h6>10</h6>
-                </div>
-
-                <div class="d1">
-                    
-                    <img style="height: 25vh; width: 20vh;" src="img/mojito.jpg" alt="">
-                    <h4>hylo</h4>
-                    <h6>10</h6>
-                </div>
-
-                <div class="d1">
-
-                    <img style="height: 25vh;" src="img/mojito.jpeg" alt="">
-                    <h4>hylo</h4>
-                    <h6>10</h6>
-                </div>
-
-                <div class="d1">
-                    
-                    <img src="img/sonic.jpeg" alt="">
-                    <h4>hylo</h4>
-                    <h6>10</h6>
-                </div>
-
-                <div class="d1">
-
-                    <img style="height: 25vh; width: 20vh;" src="img/Blue mojito.jpeg" alt="">
-                    <h4>hylo</h4>
-                    <h6>10</h6>
-                </div>
-                <div class="d1">
-
-                    <img style="height: 25vh; width: 20vh;" src="img/Blue mojito.jpeg" alt="">
-                    <h4>hylo</h4>
-                    <h6>10</h6>
-                </div>
-                <div class="d1">
-
-                    <img style="height: 25vh; width: 20vh;" src="img/Blue mojito.jpeg" alt="">
-                    <h4>hylo</h4>
-                    <h6>10</h6>
+                        <div class="mySlides fade">
+                            <img src="/img/today's special 3.jpg" style="width:100%">
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="container2">
+                <div class="table-content-top">
+                    <button class="drink" type="button" onclick="drinks()">Drinks </button>
+                    <button class="snacks" type="button" onclick="snacks()">Snacks</button>
+                    <button class="main-course" type="button" onclick="mains()">Main Course</button>
+                    <img src="/img/chef-removebg-preview.png" alt="">
+                </div>
+                <div class="table-content-main">
+                    <div class="drinks-content">
+                        <div class="hot-drinks">
+                            <div class="hot">
+                                <h1> <i class="bi bi-cup-hot"></i> Hot Drinks</h1>
+                                <button onclick="drinksInput('Tea',10)">Tea <p>$10</p> </button>
+                                <button onclick="drinksInput('Coffee')">Coffie <p>$10</p></button>
+                                <button onclick="drinksInput('Hot Chocolate')">Hot Chocolate <p>$20</p></button>
+                                <button onclick="drinksInput('Hot Lemonade')">Hot Lemonade <p>$15</p></button>
+                            </div>
+                        </div>
+                        <div class="cold-drinks">
+                            <div class="hot">
 
+                                <h1> <i class="bi bi-cup-straw"></i>Cold Drinks</h1>
+                                <button onclick="drinksInput('Ice Tea')"> Ice Tea <p>$12</p> </button>
+                                <button onclick="drinksInput('')">Cold Coffie <p>$10</p></button>
+                                <button onclick="drinksInput('')"> Apple Spice<p>$20</p></button>
+                                <button onclick="drinksInput('')">Raspberry<p>$15</p></button>
+                                <button onclick="drinksInput('')">Caramel<p>$25</p></button>
+                            </div>
+                        </div>
+                        <div class="Fruit-Juices">
+                            <div class="hot">
+
+                                <h1><i class="fa-solid fa-martini-glass-citrus"></i>Fruit Juices</h1>
+                                <button onclick="drinksInput('')"> Banana Shake <p>$12</p> </button>
+                                <button onclick="drinksInput('')">Pineapple Juice <p>$10</p></button>
+                                <button onclick="drinksInput('')"> Apple Juice<p>$20</p></button>
+                                <button onclick="drinksInput('')">Mix Fruit Juice<p>$15</p></button>
+                                <button onclick="drinksInput('')"> Mix Fruit Shake <p>$25</p></button>
+
+                            </div>
+                        </div>
+                        <div class="mojitos">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-wine-glass"></i>Mojitos</h1>
+                                <button onclick="drinksInput('')"> Virgin Mojito <p>$12</p> </button>
+                                <button onclick="drinksInput('')">Icy Blue <p>$10</p></button>
+                                <button onclick="drinksInput('')"> Pineapple Mojito<p>$20</p></button>
+                                <button onclick="drinksInput('')">Green Apple<p>$15</p></button>
+                                <button onclick="drinksInput('')"> Frozen Mojito <p>$25</p></button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snacks-content">
+
+                        <div class="Burger">
+                            <div class="hot">
+                                <h1> <i class="fa-solid fa-burger"></i> Burgers</h1>
+                                <button onclick="snackInput('Burger Non-Veg',10)">Burger Non-Veg <p>$10</p> </button>
+                                <button>Chicken Burger <p>$10</p></button>
+                                <button>Veg Burger ( बर्गर ) <p>$20</p></button>
+                                <button>Manduwa veg burger <p>$15</p></button>
+                            </div>
+                        </div>
+                        <div class="Pizza">
+                            <div class="hot">
+
+                                <h1><i class="fa-solid fa-pizza-slice"></i>Pizzas</h1>
+                                <button> Tomato Pizza <p>$12</p> </button>
+                                <button>Cheese Pizza<p>$10</p></button>
+                                <button>Chicken Pizza<p>$20</p></button>
+                                <button>BBQ Chicken Pizza<p>$15</p></button>
+                                <button>Deluxe Pizza<p>$25</p></button>
+                            </div>
+                        </div>
+                        <div class="Fries">
+                            <div class="hot">
+
+                                <h1><i class="fa-solid fa-bowl-rice"></i>Fries</h1>
+                                <button> French Fries <p>$12</p> </button>
+                                <button>Mccain frech fries <p>$10</p></button>
+                                <button> Elicious Piri Piri Fries<p>$20</p></button>
+                                <button>Surimi Fish Fries<p>$15</p></button>
+                                <button> Hyfun french fries <p>$25</p></button>
+
+                            </div>
+                        </div>
+                        <div class="Rolls">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-hotdog"></i>Rolls</h1>
+                                <button> Egg Roll <p>$12</p> </button>
+                                <button>Chicken Roll <p>$10</p></button>
+                                <button> Veg Roll<p>$20</p></button>
+                                <button>Soya Chaap Roll<p>$15</p></button>
+                                <button> Paneer Roll <p>$25</p></button>
+                                <button> Paneer Cheese Roll <p>$25</p></button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-content">
+
+                        <div class="veg-meal">
+                            <div class="hot">
+                                <h1> <i class="fa-solid fa-plate-wheat"></i>Veg Meal</h1>
+                                <button onclick="mainInput('Matar Paneer',10)">Matar Paneer <p>$10</p> </button>
+                                <button>Kadhai Paneer<p>$10</p></button>
+                                <button>Veg Biriyani<p>$20</p></button>
+                                <button>Palak Paneer<p>$15</p></button>
+                            </div>
+                        </div>
+                        <div class="Pizza">
+                            <div class="hot">
+                                <h1> <i class="fa-solid fa-drumstick-bite"></i></i>Non Veg</h1>
+                                <button> Chicken Tikka <p>$12</p> </button>
+                                <button>Butten Chicken<p>$10</p></button>
+                                <button>Kahdai Chicken <p>$20</p></button>
+                                <button>Korma<p>$15</p></button>
+                                <button>Mutton Pepper Curry<p>$25</p></button>
+                            </div>
+                        </div>
+                        <div class="Fries">
+                            <div class="hot">
+
+                                <h1><i class="fa-solid fa-bowl-rice"></i>Fried Rice</h1>
+                                <button> Veg Fried Rice <p>$12</p> </button>
+                                <button>Egg Fried Rice <p>$10</p></button>
+                                <button> Chicken Fried Rice<p>$20</p></button>
+                                <button>Garlic Fried Rice<p>$15</p></button>
+                                <button> Lemon Fried Rice <p>$25</p></button>
+
+                            </div>
+                        </div>
+                        <div class="Rolls">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-bowl-food"></i>Biriyani</h1>
+                                <button> Veg Biriyani <p>$12</p> </button>
+                                <button>Hydrabadi Chicken Biriyani<p>$10</p></button>
+                                <button> Muradabadi Chicken Biriyani<p>$20</p></button>
+                                <button>Awadhi Chicken Biriyani<p>$15</p></button>
+                                <button> Kolkata Mutton Biriyani <p>$25</p></button>
+                                <button>Mashi Veg Biriyani<p>$25</p></button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
         </div>
-        <div class="left">
+        <div class="container3">
 
-        </div>
 
-        <div class="center">
+            <div class="order-box">
+                <div class="additionals">
 
-        </div>
+                    <button id="burgers">Get Upto 50% Off on Burgers</button>
+                    <button id="pizza">Buy 2 Onion Corn pizza and get 1 Free 🤩 </button>
+                    <button id="weekends">10% Off on Weekends</button>
 
-        <div class="right">
+                </div>
+                <div class="main-order-box">
+                    <div class="top-burgers-parent">
+                        <div class="top-burgers">
+                            <div class="child-img">
+                                <img id="1" src="/img/top pizza/1-removebg-preview.png" alt="">
+                                <img id="2" src="/img/top pizza/2-removebg-preview.png" alt="">
+                                <img id="3" class="img-three" src="/img/top pizza/3-removebg-preview.png" alt="">
+                            </div>
+                            <div class="parent-image">
+                                <img src="/img/top pizza/main-removebg-preview.png" alt="" onclick="burgers()">
+                                <button id="click-me" onclick="burgers()">Click Me</button>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="order-box-after-burgers">
+                        <div class="order-box-upper">
+                            <div class="small-sphere">
+                                Do you Know...?
+                            </div>
+                            <div id="facts" class="big-sphere">
+                                <p>The oldest American restaurant still in service today is Boston's very own Union Oyster House, founded in 1826</p>
+                                <p>The word restaurant is French, originally meaning "food that restores" </p>
+                                <p>17% of diners' meals go uneaten in restaurants</p>
+                                <p>The oldest fast food restaurant chain is White Castle, founded in 1921</p>
+                                <p>Half of all adults have - at some point - worked in a restaurant</p>
+                            </div>
+                            
+                        </div>
+                        <div class="box">
+                            <!-- <p> <span class="name" ></span></p>
+                            <p> <span id="displayContact"></span></p>
+                            <div id="cost">Total Cost: $<span id="totalCost">0</span></div>
+
+                            <input class="items dr" type="text" name="" id="Drinks" placeholder="Drinks">
+
+
+
+                            <br>
+                            <input class="items sn" type="text" name="" id="Snacks" placeholder=" Snacks">
+                            <br>
+                            <input class="items mc" type="text" name="" id="MainCourse" placeholder="Main Course">
+
+
+                             <i class="bi bi-person-fill"></i>
+                            <p>Table Number</p>
+                            <div class="checkbox">
+                                <input type="checkbox" name="" id="">1
+                                <input type="checkbox" name="" id="">2
+                                <input type="checkbox" name="" id="">3
+                                <input type="checkbox" name="" id="">4
+                                <input type="checkbox" name="" id="">5
+                                <input type="checkbox" name="" id="">6
+                                <input type="checkbox" name="" id="">7
+                            </div>
+                            <div id="selectedDrinks">
+                                
+                                <button id="reset" onclick="clearInput()">Reset</button>
+
+                                <button id="submit" type="submit">Place Order</button>
+                                <br>
+                            </div>
+ -->
+                        </div>
+                    </div>
+
+                    <div class="top-pizza">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
+    </div>
 </body>
+<script src="https://kit.fontawesome.com/c64ed171a6.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
 <script>
     window.embeddedChatbotConfig = {
         chatbotId: "ehHL2aLUsqSlOWrWp4Eq8",
