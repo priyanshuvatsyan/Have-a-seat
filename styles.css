@@ -735,3 +735,18 @@ box-shadow: 10px  10px #fff .5;
     transition: none;
     box-shadow: none;
 }
+.facts-container{
+    position: fixed;
+}
+.user-details{
+    text-align: left;
+    
+    justify-content: start;
+}
+.bi-person-fill{
+    font-size: 1950%;
+    color: #0D99FF;
+    border: 2px solid black;
+    background: #00000078;
+    padding: 2px 2px ;
+}
