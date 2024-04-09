@@ -375,36 +375,29 @@ btn.onclick  = function() {
     console.log("trigger 1");
     modal.style.display = "none";
     console.log("trigger final");
-} */
-
+} 
+ */
 
 
 /**Do you know */
-function facts() {
-    console.log("triggered 1");
-  
-    // Get all paragraphs inside the #facts element
-    const funfacts = document.querySelectorAll("#facts p");
-  
-    // Initialize the index outside the loop
-    let factIndex = 0;
-  
-    // Loop through paragraphs and show only the current one
-    funfacts.forEach((paragraph, index) => {
-      paragraph.style.display = index === factIndex ? "block" : "none";
-    });
-  
-    console.log("triggered 2");
-  
-    // Update the index for the next paragraph
-    factIndex = (factIndex + 1) % funfacts.length;
-  
-    // Call the function recursively after a delay
-    setTimeout(facts, 2000);
-  
-    console.log("final triggering");
-  }
-  
-  // Call the function to start displaying facts
-  facts();
-5  
+var paragraph = document.querySelectorAll("#facts p");
+var currentIndex = 0;
+
+function ShowParagraph() {
+    
+
+paragraph.forEach(function (paragraph) {
+    paragraph.classList.add('hidden');
+});
+
+paragraph[currentIndex].classList.remove('hidden');
+currentIndex++;
+
+if (currentIndex >= paragraph.length) {
+    currentIndex = 0;
+}
+setTimeout(ShowParagraph,3000);
+
+}
+
+ShowParagraph();

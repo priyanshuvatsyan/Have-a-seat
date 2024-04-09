@@ -469,29 +469,37 @@ transition: .2s;
     display: block; */
    margin-top: -70%;
 }
-.small-sphere{
+.small-sphere {
     background-color: #FFA500;
-    width: 40%;
-    margin-top: 70%;
+    width: 40%; /* Fixed width */
+    margin-top: 35%; /* Fixed margin */
     padding-top: 15px;
     padding-bottom: 15px;
-    
-    padding-left: 25px;
+    border: 2px solid black;
+    border-bottom-color: #111;
+  
     font-family: cursive;
-    margin-left: 25%;
+    margin-left: 27%;
     border-radius: 15%;
+    text-align: center;
 }
-.big-sphere{ 
+
+.big-sphere {
     margin-top: -10px;
     text-align: center;
-    width: 150%;
+    width: 700px; /* Fixed width */
     padding-left: 25px;
     font-family: cursive;
-    
     border-radius: 15%;
     position: relative;
     background-color: #FFA500;
+   /*  margin-left: -80px; */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid black;
+    border-bottom-left-radius: 20px;
 }
+
 
 
 .box #name{
@@ -714,17 +722,16 @@ box-shadow: 10px  10px #fff .5;
 }
 
 .big-sphere{
-    margin-left: -80px;
-    position: relative;
-   overflow: hidden;
-    border: 2px solid black;
-    border-bottom-left-radius: 20px;
+   
 }
 .small-sphere{
-   border: 2px solid black;
-   border-bottom-color: #111;
+
     
 }
-.big-sphere p{
-   
+.hidden{
+    display: none;
+}
+.user:hover{
+    transition: none;
+    box-shadow: none;
 }
