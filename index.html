@@ -91,7 +91,7 @@
                     <button class="main-course" type="button" onclick="mains()">Main Course</button>
                     <img src="/img/chef-removebg-preview.png" alt="">
                 </div>
-                <div class="table-content-main">
+              <!--   <div class="table-content-main">
                     <div class="drinks-content">
                         <div class="hot-drinks">
                             <div class="hot">
@@ -231,9 +231,136 @@
                         </div>
                     </div>
 
+                </div> -->
+
+                <div class="table-content-main">
+                    <div class="drinks-content">
+                        <div class="hot-drinks">
+                            <div class="hot">
+                                <h1> <i class="bi bi-cup-hot"></i> Hot Drinks</h1>
+                                <button onclick="drinksInput('Tea',10)">Tea <p>$10</p> </button>
+                                <button onclick="drinksInput('Coffee', 10)">Coffie <p>$10</p></button>
+                                <button onclick="drinksInput('Hot Chocolate', 20)">Hot Chocolate <p>$20</p></button>
+                                <button onclick="drinksInput('Hot Lemonade', 15)">Hot Lemonade <p>$15</p></button>
+                            </div>
+                        </div>
+                        <div class="cold-drinks">
+                            <div class="hot">
+                                <h1> <i class="bi bi-cup-straw"></i>Cold Drinks</h1>
+                                <button onclick="drinksInput('Ice Tea', 12)"> Ice Tea <p>$12</p> </button>
+                                <button onclick="drinksInput('Cold Coffie', 10)">Cold Coffie <p>$10</p></button>
+                                <button onclick="drinksInput('Apple Spice', 20)"> Apple Spice<p>$20</p></button>
+                                <button onclick="drinksInput('Raspberry', 15)">Raspberry<p>$15</p></button>
+                                <button onclick="drinksInput('Caramel', 25)">Caramel<p>$25</p></button>
+                            </div>
+                        </div>
+                        <div class="Fruit-Juices">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-martini-glass-citrus"></i>Fruit Juices</h1>
+                                <button onclick="drinksInput('Banana Shake', 12)"> Banana Shake <p>$12</p> </button>
+                                <button onclick="drinksInput('Pineapple Juice', 10)">Pineapple Juice <p>$10</p></button>
+                                <button onclick="drinksInput('Apple Juice', 20)"> Apple Juice<p>$20</p></button>
+                                <button onclick="drinksInput('Mix Fruit Juice', 15)">Mix Fruit Juice<p>$15</p></button>
+                                <button onclick="drinksInput('Mix Fruit Shake', 25)"> Mix Fruit Shake <p>$25</p></button>
+                            </div>
+                        </div>
+                        <div class="mojitos">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-wine-glass"></i>Mojitos</h1>
+                                <button onclick="drinksInput('Virgin Mojito', 12)"> Virgin Mojito <p>$12</p> </button>
+                                <button onclick="drinksInput('Icy Blue', 10)">Icy Blue <p>$10</p></button>
+                                <button onclick="drinksInput('Pineapple Mojito', 20)"> Pineapple Mojito<p>$20</p></button>
+                                <button onclick="drinksInput('Green Apple', 15)">Green Apple<p>$15</p></button>
+                                <button onclick="drinksInput('Frozen Mojito', 25)"> Frozen Mojito <p>$25</p></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snacks-content">
+                        <div class="Burger">
+                            <div class="hot">
+                                <h1> <i class="fa-solid fa-burger"></i> Burgers</h1>
+                                <button onclick="snacksInput('Burger Non-Veg', 10)">Burger Non-Veg <p>$10</p> </button>
+                                <button onclick="snacksInput('Chicken Burger', 10)">Chicken Burger <p>$10</p></button>
+                                <button onclick="snacksInput('Veg Burger', 20)">Veg Burger ( बर्गर ) <p>$20</p></button>
+                                <button onclick="snacksInput('Manduwa Veg Burger', 15)">Manduwa veg burger <p>$15</p></button>
+                            </div>
+                        </div>
+                        <div class="Pizza">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-pizza-slice"></i>Pizzas</h1>
+                                <button onclick="snacksInput('Tomato Pizza', 12)"> Tomato Pizza <p>$12</p> </button>
+                                <button onclick="snacksInput('Cheese Pizza', 10)">Cheese Pizza<p>$10</p></button>
+                                <button onclick="snacksInput('Chicken Pizza', 20)">Chicken Pizza<p>$20</p></button>
+                                <button onclick="snacksInput('BBQ Chicken Pizza', 15)">BBQ Chicken Pizza<p>$15</p></button>
+                                <button onclick="snacksInput('Deluxe Pizza', 25)">Deluxe Pizza<p>$25</p></button>
+                            </div>
+                        </div>
+                        <div class="Fries">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-bowl-rice"></i>Fries</h1>
+                                <button onclick="snacksInput('French Fries', 12)"> French Fries <p>$12</p> </button>
+                                <button onclick="snacksInput('Mccain Frech Fries', 10)">Mccain frech fries <p>$10</p></button>
+                                <button onclick="snacksInput('Elicious Piri Piri Fries', 20)"> Elicious Piri Piri Fries<p>$20</p></button>
+                                <button onclick="snacksInput('Surimi Fish Fries', 15)">Surimi Fish Fries<p>$15</p></button>
+                                <button onclick="snacksInput('Hyfun French Fries', 25)"> Hyfun french fries <p>$25</p></button>
+                            </div>
+                        </div>
+                        <div class="Rolls">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-hotdog"></i>Rolls</h1>
+                                <button onclick="snacksInput('Egg Roll', 12)"> Egg Roll <p>$12</p> </button>
+                                <button onclick="snacksInput('Chicken Roll', 10)">Chicken Roll <p>$10</p></button>
+                                <button onclick="snacksInput('Veg Roll', 20)"> Veg Roll<p>$20</p></button>
+                                <button onclick="snacksInput('Soya Chaap Roll', 15)">Soya Chaap Roll<p>$15</p></button>
+                                <button onclick="snacksInput('Paneer Roll', 25)">Paneer Roll <p>$25</p></button>
+                                <button onclick="snacksInput('Paneer Cheese Roll', 25)">Paneer Cheese Roll <p>$25</p></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="veg-meal">
+                            <div class="hot">
+                                <h1> <i class="fa-solid fa-plate-wheat"></i>Veg Meal</h1>
+                                <button onclick="mainsInput('Matar Paneer', 10)">Matar Paneer <p>$10</p> </button>
+                                <button onclick="mainsInput('Kadhai Paneer', 10)">Kadhai Paneer<p>$10</p></button>
+                                <button onclick="mainsInput('Veg Biriyani', 20)">Veg Biriyani<p>$20</p></button>
+                                <button onclick="mainsInput('Palak Paneer', 15)">Palak Paneer<p>$15</p></button>
+                            </div>
+                        </div>
+                        <div class="Non-Veg">
+                            <div class="hot">
+                                <h1> <i class="fa-solid fa-drumstick-bite"></i></i>Non Veg</h1>
+                                <button onclick="mainsInput('Chicken Tikka', 12)"> Chicken Tikka <p>$12</p> </button>
+                                <button onclick="mainsInput('Butten Chicken', 10)">Butten Chicken<p>$10</p></button>
+                                <button onclick="mainsInput('Kahdai Chicken', 20)">Kahdai Chicken <p>$20</p></button>
+                                <button onclick="mainsInput('Korma', 15)">Korma<p>$15</p></button>
+                                <button onclick="mainsInput('Mutton Pepper Curry', 25)">Mutton Pepper Curry<p>$25</p></button>
+                            </div>
+                        </div>
+                        <div class="Fried-Rice">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-bowl-rice"></i>Fried Rice</h1>
+                                <button onclick="mainsInput('Veg Fried Rice', 12)"> Veg Fried Rice <p>$12</p> </button>
+                                <button onclick="mainsInput('Egg Fried Rice', 10)">Egg Fried Rice <p>$10</p></button>
+                                <button onclick="mainsInput('Chicken Fried Rice', 20)"> Chicken Fried Rice<p>$20</p></button>
+                                <button onclick="mainsInput('Garlic Fried Rice', 15)">Garlic Fried Rice<p>$15</p></button>
+                                <button onclick="mainsInput('Lemon Fried Rice', 25)"> Lemon Fried Rice <p>$25</p></button>
+                            </div>
+                        </div>
+                        <div class="Biriyani">
+                            <div class="hot">
+                                <h1><i class="fa-solid fa-bowl-food"></i>Biriyani</h1>
+                                <button onclick="mainsInput('Veg Biriyani', 12)"> Veg Biriyani <p>$12</p> </button>
+                                <button onclick="mainsInput('Hydrabadi Chicken Biriyani', 10)">Hydrabadi Chicken Biriyani<p>$10</p></button>
+                                <button onclick="mainsInput('Muradabadi Chicken Biriyani', 20)"> Muradabadi Chicken Biriyani<p>$20</p></button>
+                                <button onclick="mainsInput('Awadhi Chicken Biriyani', 15)">Awadhi Chicken Biriyani<p>$15</p></button>
+                                <button onclick="mainsInput('Kolkata Mutton Biriyani', 25)"> Kolkata Mutton Biriyani <p>$25</p></button>
+                                <button onclick="mainsInput('Mashi Veg Biriyani', 25)">Mashi Veg Biriyani<p>$25</p></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
+        
             </div>
         </div>
         <div class="container3">
@@ -286,7 +413,25 @@
                             </div>
 
                             <div class="order-details">
+                                <input class="items dr" type="text" name="" id="Drinks" placeholder="Drinks">
+
+
+
+                                <br>
+                                <input class="items sn" type="text" name="" id="Snacks" placeholder=" Snacks">
+                                <br>
+                                <input class="items mc" type="text" name="" id="MainCourse" placeholder="Main Course">
+    
                                 <div id="cost">Total Cost: $<span id="totalCost">0</span></div>
+
+                                <div id="selectedDrinks">
+                                
+                                    <button id="reset" onclick="clearInput()">Reset</button>
+    
+                                    <button id="submit" type="submit">Place Order</button>
+                                    <br>
+                                </div>
+
                             </div>
                             <!-- <p> <span class="name" ></span></p>
                             <p> <span id="displayContact"></span></p>

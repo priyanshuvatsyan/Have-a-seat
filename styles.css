@@ -531,7 +531,7 @@ margin-left: 55px;
 font-family: cursive;
 font-size: 17px;
 box-shadow: 10px  10px #fff .5;
-
+margin-top: 10px;
 }
 
 
@@ -731,13 +731,15 @@ box-shadow: 10px  10px #fff .5;
 }
 
 .user-details{
-   margin-left: -80%;
+  margin-left: -10%;
+   max-width: 100%; 
+   
 }
 .user-details p{
     font-family:sans-serif;
     font-weight: bolder;
    
-    margin-left: 15%;
+    margin-left: 28%;
     font-size: 150%;
    border-bottom: 2px solid  #33333363;
     width: 30%;
@@ -752,4 +754,18 @@ box-shadow: 10px  10px #fff .5;
 .username{
     margin-top: -9%;
   
+}
+.order-details{
+    border: 5px solid #e68231;
+    margin-top: 4%;
+    padding: 30px ;
+    border-radius: 20%;
+    margin-left: 10%;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+}
+#cost{
+    margin-top: 10px;
 }
