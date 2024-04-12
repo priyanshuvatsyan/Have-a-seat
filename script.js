@@ -182,9 +182,10 @@ function drinksInput(drinkname, cost) {
     }
 
     var deleteButton = document.createElement('button');
-    deleteButton.textContent = 'x';
+    deleteButton.textContent = drinkname;
     deleteButton.onclick = function () {
         removeItems(drinkname, cost, deleteButton);
+
     };
     selectedDrinks.appendChild(deleteButton);
     totalCost += cost;
@@ -222,8 +223,8 @@ function removeItems(drinkname, cost, deleteButton) {
         input.value = items.join(', ');
         totalCost -= cost;
         document.getElementById('totalCost').textContent = totalCost;
-        deleteButton.remove();
     }
+    deleteButton.remove();
     console.log("tigger");
 }
 
@@ -247,7 +248,7 @@ function removeItems(drinkname, cost, deleteButton) {
 
 
 /** Snacks */
-function snackInput(snackname, cost) {
+function snacksInput(snackname, cost) {
     var inputSnacks = document.getElementById('Snacks');
     var selectedDrinks = document.getElementById('selectedDrinks');
     if (inputSnacks.value === '') {
@@ -258,9 +259,10 @@ function snackInput(snackname, cost) {
     }
 
     var deleteButton = document.createElement('button');
-    deleteButton.textContent = 'x';
+    deleteButton.textContent = snackname;
     deleteButton.onclick = function () {
-        removeItem(snackname, cost, deleteButton);
+        console.log("trigger 0");
+        removeItemSnack(snackname, cost, deleteButton);
     };
     selectedDrinks.appendChild(deleteButton);
     totalCost += cost;
@@ -269,10 +271,12 @@ function snackInput(snackname, cost) {
 }
 
 
-function removeItem(snackname, cost, deleteButton) {
+function removeItemSnack(snackname, cost, deleteButton) {
+   /*  console.log("trigger 1"); */
     var input = document.getElementById('Snacks');
     var items = input.value.split(', ');
     var i = items.indexOf(snackname);
+   /*  console.log("trigger 2"); */
     if (i != -1) {
         items.splice(i, 1);
         input.value = items.join(', ');
@@ -280,8 +284,9 @@ function removeItem(snackname, cost, deleteButton) {
         document.getElementById('totalCost').textContent = totalCost;
         deleteButton.remove();
     }
+    /* console.log("Final trigger "); */
 }
-function clearInput() {
+function clearInput(deleteButton) {
     var input = document.getElementById('Drinks');
     input.value = '';
 
@@ -297,13 +302,16 @@ function clearInput() {
     var selectedDrinks = document.getElementById('selectedDrinks');
     var deleteButtons = selectedDrinks.querySelectorAll('button');
     deleteButtons.forEach(function (button) {
-        deleteButton.remove() ;
+        deleteButtons.remove();
+        console.log("trigger 1");
+        deleteButton.remove();
+        console.log("Final trigger ");
     });
 }
 
 
     /**Mains */
-     function mainInput(mainname, cost) {
+     function mainsInput(mainname, cost) {
         var inputMain = document.getElementById('MainCourse');
         var selectedDrinks = document.getElementById('selectedDrinks');
         if (inputMain.value === '') {
@@ -314,10 +322,11 @@ function clearInput() {
         }
     
         var deleteButton = document.createElement('button');
-        deleteButton.textContent = 'x';
+        deleteButton.textContent = mainname;
         deleteButton.onclick = function () {
             removeItem(mainname, cost, deleteButton);
         };
+
         selectedDrinks.appendChild(deleteButton);
         totalCost += cost;
         document.getElementById('totalCost').textContent = totalCost;
