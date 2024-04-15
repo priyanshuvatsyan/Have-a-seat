@@ -769,3 +769,16 @@ margin-top: 10px;
 #cost{
     margin-top: 10px;
 }
+
+
+
+/*top drinks*/
+.top-drinks{
+  margin-left: -35%;
+  margin-right: 70%;
+
+}
+.parent-image-drinks img{
+  min-width: 200%;
+    min-height: 500%;
+}
