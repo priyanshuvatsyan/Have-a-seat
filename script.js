@@ -452,3 +452,26 @@ function openMap() {
     }
     map.style.display = "block";
 }
+
+
+/** Responsive design */
+let clickCount = 1;
+function showMenu() {
+
+    let responsiveMenu = document.getElementsByClassName("responsive-menu");
+    console.log("triggere 1 ");
+
+
+    console.log(clickCount);
+    console.log(" final trigger  ");
+    for (let index = 0; index < responsiveMenu.length; index++) {
+        if (clickCount % 2 == 0) {
+            responsiveMenu[index].style.display = "none";
+        }
+        else {
+
+            responsiveMenu[index].style.display = "block";
+        }
+    }
+    clickCount++;
+}

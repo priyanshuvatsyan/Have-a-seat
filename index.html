@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+<div class="page1">
     <div id="popupModal" class="modal">
         <div class="modal-content">
 
@@ -42,7 +42,7 @@
             <li><a href="">Menu</a></li>
             <li><a href="">Offers</a></li>
             <li><a href="">About</a></li>
-            <li><a href="">Online Order</a>
+            <li><a href="">Pre-Order</a>
             <li><i class="bi-person-circle">
                     <p><span class="name"></span></p>
                 </i>
@@ -50,7 +50,17 @@
             </li>
             </li>
         </ul>
+        <i class="bi bi-list" onclick="showMenu()" ></i>
     </header>
+    <div class="responsive-menu">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Menu</a></li>
+            <li><a href="">Offers</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Pre-Order</a></li>
+        </ul>
+    </div>
 
     <div class="icons">
         <ul>
@@ -66,7 +76,39 @@
         <img src="burger-removebg-preview.png" alt="" class="smoke">
     </div>
 
+</div>
+    <div class="what-we-offer">
+        <div class="gradient-line"></div>
+        <div class="Main-container">
+            <div class="wwo-heading">
+                <h1>What we offer </h1>
+            </div>
+            <div class=" wwo-divs">
+                <div class="wwo wwo-div1">
+                    <i class="bi bi-alarm-fill"></i>
+                    <h1>Pre-Order</h1>
+                    <p>You can order you favourite meal before even reaching at the restaurant
+                        .</p>
+                </div>
+                <div class="wwo wwo-div2">
+                    <i class="bi bi-tree-fill"></i>
+                    <h1>Orders with 0 Hustle
+                    </h1>
+                    <p>No need to go to the order desk. Place your orders through the website only
+                    </p>
 
+                </div>
+                <div class="wwo wwo-div3">
+                    <i class="bi bi-signpost-split-fill"></i>
+                    <h1>New Flavors, Fresh Ideas: Inspired by You!</h1>
+                    <p>Experience the taste of innovation on your next visit! We've implemented your suggestions to
+                        enhance your dining experience.</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
     <h2 class="heading">Menu</h2>
     <div class="menu">
         <div class="menu-content">
@@ -522,8 +564,46 @@
 
 
 
-    <h2 class="heading" id="aboutusHeading">About Us</h2>
-    <div class="page3">
+    <div class="our-story">
+        <h2 class="heading" id="aboutusHeading">Our Story</h2>
+        <div class="os-div-one">
+            <div class="os-div-one-one">
+                <img src="/extra data/our story img1.jpg" alt="">
+            </div>
+            <div class="os-div-one-two">
+                <p>Welcome to Have a seat, where passion for food meets <br> unparalleled service. Our journey began
+                    with a simple idea - to create a <br> dining experience that feels like home, yet offers the flavors
+                    of
+                    the <br> world. As avid food enthusiasts, we sought to craft a space where <br> every dish tells a
+                    story, where every meal is a celebration of flavors <br> and cultures.</p>
+                <p>Our story is one of humble beginnings. It was a bustling evening, <br> and I found myself eagerly
+                    waiting
+                    in line to place my order at our <br> restaurant. As I stood there, surrounded by the aroma of
+                    sizzling
+                    <br> spices and the laughter of diners, inspiration struck. Why not build <br> a place that not only
+                    serves exceptional food but also creates <br> unforgettable memories?
+                </p>
+            </div>
+        </div>
+
+        <div class="os-div-two">
+
+            <div class="os-div-two-one">
+                <p>Since that moment of revelation, [Restaurant Name] has been on a mission to redefine the dining
+                    experience. From sourcing the freshest <br> ingredients to curating a menu that caters to diverse
+                    palates, <br> every aspect of our restaurant is infused with love and dedication.</p>
+                <p>Join us on this culinary journey as we invite you to savor the essence <br> of good food, warm
+                    hospitality, and cherished moments. Whether <br> you're dining with family, catching up with
+                    friends, or
+                    simply seeking <br> solace in a delicious meal, [Restaurant Name] promises to be your <br> home away
+                    from home.</p>
+            </div>
+            <div class="os-div-two-two">
+                <img src="/extra data/our story img2.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <!--  <div class="page3">
         <div class="aboutUs">
             <img src="img/other/about_us_bg-removebg-preview.png" alt="">
         </div>
@@ -548,8 +628,8 @@
             <div class="author">
                 Priva
             </div>
-        </div>
-        <div class="map">
+        </div> -->
+    <!--  <div class="map">
             <h3>Locate Us On <span onclick="openMap()">
                     <p>M</p>
                     <p>a</p>
@@ -558,7 +638,82 @@
                 </span></h3>
             <iframe id="Togglemap"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.197592066747!2d-122.08565948517111!3d37.42200477981848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f80d58e4f1f07%3A0xf77311c6158ab7ff!2sGoogleplex!5e0!3m2!1sen!2sus!4v1618838746661!5m2!1sen!2sus"></iframe>
+        </div> -->
+
+    <div class="timing-map">
+        <h2 class="heading">Timing</h2>
+        <div class=" to-all-div">
+            <div class="to-div-one">
+
+                <h1>Planing Us to visit us?</h1>
+                <p>Anticipating your arrival with great excitement! Plan your visit today and immerse yourself in a
+                    culinary journey brimming with sensational tastes, inviting ambiance, and unforgettable moments.</p>
+                <button class="contactUs" >Contact US</button>
+                <!--  <h3>Locate Us on map</h3> -->
+                <!--  <iframe id="Togglemap"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.197592066747!2d-122.08565948517111!3d37.42200477981848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f80d58e4f1f07%3A0xf77311c6158ab7ff!2sGoogleplex!5e0!3m2!1sen!2sus!4v1618838746661!5m2!1sen!2sus"></iframe>
+                    -->
+            </div>
+            <div class="to-div-two">
+                <h1>Opening time</h1>
+                <div class="spacing">
+
+                    <p>Working days </p>
+                    <p>9:00AM - 6:00PM</p>
+
+                </div>
+                <div class="spacing">
+                    <h1>....................................</h1>
+                </div>
+
+                <div id="Saturday" class="spacing">
+
+                    <p>Saturday </p>
+                    <p>9:00AM - 6:00PM</p>
+
+                </div>
+                <div class="spacing">
+                    <h1>....................................</h1>
+                </div>
+                <div id="Sunday" class="spacing">
+
+                    <p>Sunday </p>
+                    <p>Closed</p>
+
+                </div>
+            </div>
+            <div class="to-div-three">
+                <h1>Get in Touch</h1>
+                <div class="get-in-touch">
+                    <p>+91 338945186 </p>
+                    <div class="spacing">
+                        <h1>................</h1>
+                    </div>
+                    <p>haveaseat@gmail.com</p>
+
+                </div>
+            </div>
         </div>
+        <div class="get-news-and-offers">
+            <br><br><br><br><br><br>
+                <h1>Get News and Offers</h1>
+                <p>We provide special offers and some special discounts on Weekends we also provide some other special  discounts specially for students. <br> So what are you waiting for.? come and grab your discounts and offers  </p>
+                <button id="cUs" class="contactUs">Contact Us</button>
+                <div class="title">
+                    <h1>Have a seat</h1>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Manu</a></li>
+                        <li><a href="#">Pre Order</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>copyright@priyanshuvatsyan</p>
+                </div>
+                
+        </div>
+    </div>
+    </div>
     </div>
 
     </div>
