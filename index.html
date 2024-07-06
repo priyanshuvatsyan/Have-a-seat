@@ -16,67 +16,67 @@
 </head>
 
 <body>
-<div class="page1">
-    <div id="popupModal" class="modal">
-        <div class="modal-content">
+    <div class="page1">
+        <div id="popupModal" class="modal">
+            <div class="modal-content">
 
 
-            <div class="man">
-                <img src="/pop_up-removebg-preview.png" alt="">
-            </div>
-            <div class="inputdata">
-                <span class="close" onclick="popupbg()">&times;</span>
-                <h2>Welcome</h2>
-                <input type="text" id="nameInput" placeholder="Priva" onclick="colorChange(this)">
-                <input type="text" id="contactInput" placeholder="7876641139" onclick="colorChange(this)">
-                <button id="submitBtn">Submit</button>
+                <div class="man">
+                    <img src="/pop_up-removebg-preview.png" alt="">
+                </div>
+                <div class="inputdata">
+                    <span class="close" onclick="popupbg()">&times;</span>
+                    <h2>Welcome</h2>
+                    <input type="text" id="nameInput" placeholder="Priva" onclick="colorChange(this)">
+                    <input type="text" id="contactInput" placeholder="7876641139" onclick="colorChange(this)">
+                    <button id="submitBtn">Submit</button>
 
+                </div>
             </div>
         </div>
+
+        <header>
+            <img src="logo-removebg-preview.png" alt="">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Menu</a></li>
+                <li><a href="">Offers</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Pre-Order</a>
+                <li><i class="bi-person-circle">
+                        <p><span class="name"></span></p>
+                    </i>
+
+                </li>
+                </li>
+            </ul>
+            <i class="resp-menu-btn bi bi-list" onclick="showMenu()"></i>
+        </header>
+        <div class="responsive-menu">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Menu</a></li>
+                <li><a href="">Offers</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Pre-Order</a></li>
+            </ul>
+        </div>
+
+        <div class="icons">
+            <ul>
+                <li><i class="bi bi-whatsapp"></i></li>
+                <li><i class="bi bi-snapchat"></i></li>
+                <li><i class="bi bi-instagram"></i></li>
+                <li> <i class="bi bi-facebook"></i></li>
+                <li><i class="bi bi-twitter"></i></li>
+            </ul>
+        </div>
+        <div class="container">
+
+            <img src="burger-removebg-preview.png" alt="" class="smoke">
+        </div>
+
     </div>
-
-    <header>
-        <img src="logo-removebg-preview.png" alt="">
-        <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Menu</a></li>
-            <li><a href="">Offers</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Pre-Order</a>
-            <li><i class="bi-person-circle">
-                    <p><span class="name"></span></p>
-                </i>
-
-            </li>
-            </li>
-        </ul>
-        <i class="bi bi-list" onclick="showMenu()" ></i>
-    </header>
-    <div class="responsive-menu">
-        <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Menu</a></li>
-            <li><a href="">Offers</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Pre-Order</a></li>
-        </ul>
-    </div>
-
-    <div class="icons">
-        <ul>
-            <li><i class="bi bi-whatsapp"></i></li>
-            <li><i class="bi bi-snapchat"></i></li>
-            <li><i class="bi bi-instagram"></i></li>
-            <li> <i class="bi bi-facebook"></i></li>
-            <li><i class="bi bi-twitter"></i></li>
-        </ul>
-    </div>
-    <div class="container">
-
-        <img src="burger-removebg-preview.png" alt="" class="smoke">
-    </div>
-
-</div>
     <div class="what-we-offer">
         <div class="gradient-line"></div>
         <div class="Main-container">
@@ -110,6 +110,17 @@
 
     </div>
     <h2 class="heading">Menu</h2>
+    <i class="menu-bar-button bi bi-list" onclick="rotateButton(this)"></i>
+
+    <div class="menu-bar-button-menu">
+        <ul>
+            <li> </li>
+            <li class="menu-oprions" onclick="drinks()">Drinks</li>
+            <li class="menu-oprions" onclick="snacks()"> Snacks</li>
+            <li class="menu-oprions" onclick="mains()">Main Course</li>
+
+        </ul>
+    </div>
     <div class="menu">
         <div class="menu-content">
             <div class="container1">
@@ -284,7 +295,7 @@
                     <div class="drinks-content">
                         <div class="hot-drinks">
                             <div class="hot">
-                                <h1> <i class="bi bi-cup-hot"></i> Hot Drinks</h1>
+                                <h1> <i class="bi bi-cup--"></i> Hot Drinks</h1>
                                 <button onclick="drinksInput('Tea',10)">Tea <p>$10</p> </button>
                                 <button onclick="drinksInput('Coffee', 10)">Coffie <p>$10</p></button>
                                 <button onclick="drinksInput('Hot Chocolate', 20)">Hot Chocolate <p>$20</p></button>
@@ -425,11 +436,54 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    <button class="cart" onclick="openCart()">Cart</button>
+                    <div class="cart-data">
+                        <div class="cart-header">
+                            <h1>Cart</h1>
+                            <p id="totalcount">0 items</p>
+                        </div>
 
+                        <div class="order-details">
+                            <div class="item-order-details">
+                                <input class="items dr" type="text" id="Drinks" placeholder="Drinks">
+                                <h2 class="h-dr" id="countdrink">0</h2>
+                                <button class="reset-btn reset-btn-dr" onclick="clearInput('Drinks')">Reset</button>
+                            </div>
+                            <div class="item-order-details">
+                                <input class="items sn" type="text" id="Snacks" placeholder="Snacks">
+                                <h2 id="countsnack">0</h2>
+                                <button class="reset-btn" onclick="clearInput('Snacks')">Reset</button>
+                            </div>
+                            <div class="item-order-details">
+                                <input class="items mc" type="text" id="MainCourse" placeholder="Main Course">
+                                <h2 id="countmaincourse">0</h2>
+                                <button class="reset-btn" onclick="clearInput('MainCourse')">Reset</button>
+                            </div>
+                            <div id="cost">Total Cost: $<span id="totalCost">0</span></div>
+
+                            <div class="req-pre">
+                                <button id="req-btn" onclick="preOrderDisplay()">Regular</button>
+                                <button id="pre-btn" onclick="preOrderDisplay()">Pre Order</button>
+                            </div>
+                            <div class="user-details-cart">
+                                <h3>Name</h3>
+                                <p class="username"> <span class="name"></span></p>
+                                <h3>Contact</h3>
+                                <p class="contact"><span id="displayContact"></span></p>
+                            </div>
+
+                            <input class="items " type="text" id="pre-time" placeholder="Enter Time">
+                            <div id="selectedDrinks">
+                                <button id="submit" type="submit">Place Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
-        <div class="container3">
+    </div>
+    <!--  <div class="container3">
 
 
             <div class="order-box">
@@ -446,7 +500,7 @@
                             <div class="child-img">
                                 <img id="b1" src="/img/top pizza/1-removebg-preview.png" alt="">
                                 <img id="b2" src="/img/top pizza/2-removebg-preview.png" alt="">
-                                <!--  <img id="b3" class="img-three" src="/img/top pizza/3-removebg-preview.png" alt=""> -->
+                                
                             </div>
                             <div class="parent-image">
                                 <img src="/img/top pizza/main-removebg-preview.png" alt="" onclick="burgers()">
@@ -462,7 +516,7 @@
                                     Do you Know...?
                                 </div>
                                 <div id="facts" class="big-sphere">
-                                    <!--  <p>The oldest American restaurant still in service today is Boston's very own Union Oyster House, founded in 1826</p> -->
+                                  
                                     <p>The word restaurant is French, originally meaning "food that restores" </p>
                                     <p>17% of diners' meals go uneaten in restaurants</p>
                                     <p>The oldest fast food restaurant chain is White Castle, founded in 1921</p>
@@ -488,50 +542,9 @@
                                 <br>
                                 <input class="items mc" type="text" name="" id="MainCourse" placeholder="Main Course">
 
-                                <div id="cost">Total Cost: $<span id="totalCost">0</span></div>
-
-
-                                <div id="selectedDrinks">
-
-                                    <button id="reset" onclick="clearInput()">Reset</button>
-
-                                    <button id="submit" type="submit">Place Order</button>
-                                    <br>
-                                </div>
+                              
                             </div>
-                            <!-- <p> <span class="name" ></span></p>
-                            <p> <span id="displayContact"></span></p>
-                            <div id="cost">Total Cost: $<span id="totalCost">0</span></div>
-
-                            <input class="items dr" type="text" name="" id="Drinks" placeholder="Drinks">
-
-
-
-                            <br>
-                            <input class="items sn" type="text" name="" id="Snacks" placeholder=" Snacks">
-                            <br>
-                            <input class="items mc" type="text" name="" id="MainCourse" placeholder="Main Course">
-
-
-                             <i class="bi bi-person-fill"></i>
-                            <p>Table Number</p>
-                            <div class="checkbox">
-                                <input type="checkbox" name="" id="">1
-                                <input type="checkbox" name="" id="">2
-                                <input type="checkbox" name="" id="">3
-                                <input type="checkbox" name="" id="">4
-                                <input type="checkbox" name="" id="">5
-                                <input type="checkbox" name="" id="">6
-                                <input type="checkbox" name="" id="">7
-                            </div>
-                            <div id="selectedDrinks">
-                                
-                                <button id="reset" onclick="clearInput()">Reset</button>
-
-                                <button id="submit" type="submit">Place Order</button>
-                                <br>
-                            </div>
- -->
+                           
                         </div>
                     </div>
 
@@ -544,22 +557,44 @@
                         </div>
                         <div class="parent-image-drinks">
                             <img src="/img/top drinks/coff-removebg-preview.png" alt="" onclick="drinks()">
-                            <!--  <button id="click-me" onclick="burgers()">Click Me</button> -->
+                           
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <!-- <div class="payment-system"> -->
-        <div id="payment-modal" class="Pmodal">
-            <div class="payment-modal-content">
-                <span class="payment-modal-close">&times;</span>
-                <img src="img/chef.jpg" alt="">
+    <!-- <div class="payment-system"> -->
+    <div id="payment-modal" class="Pmodal">
+        <div class="payment-modal-content">
+            <span id="payment-modal-close-button" class="close payment-modal-close">&times;</span>
+            
+            <div class="payment-modal-containers qr-container">
+                <img src="img/qr.png" alt="">
+            </div>
+            <div class="payment-modal-buttons">
+            <div class="payment-modal-containers pay-cash-container">
+                <button class="pay-cash" id="payment-cash" onclick="payCash()">Pay Cash</button>
+            </div>
+            <input type="text" name="" id="pay-input">
+
+            <div class= "payment-modal-containers pay-later-container">
+                <button class="pay-later">Pay Later</button>
+                <!-- <input type="text" name="" id="pay-later-input">
+ -->
+            </div>
+
+            <div class="payment-modal-containers pay-with-qr-container">
+                <button class="pay-with-qr">Pay with QR</button>
+                <!-- <input type="text" name="" id="pay-with-qr-input"> -->
             </div>
         </div>
+        </div>
+            <img id="chef-img-Pmodal" src="img/chef-removebg-preview.png" alt="">
+        </div>
+    </div>
 
-        <!--   </div> -->
+    <!--   </div> -->
     </div>
 
 
@@ -587,9 +622,12 @@
         </div>
 
         <div class="os-div-two">
-
+            <div class="resp-os-div-two-two os-div-two-two">
+                <img src="/extra data/our story img2.jpg" alt="">
+            </div>
             <div class="os-div-two-one">
-                <p>Since that moment of revelation, [Restaurant Name] has been on a mission to redefine the dining
+                <p>Since that momen
+                    t of revelation, [Restaurant Name] has been on a mission to redefine the dining
                     experience. From sourcing the freshest <br> ingredients to curating a menu that caters to diverse
                     palates, <br> every aspect of our restaurant is infused with love and dedication.</p>
                 <p>Join us on this culinary journey as we invite you to savor the essence <br> of good food, warm
@@ -598,7 +636,7 @@
                     simply seeking <br> solace in a delicious meal, [Restaurant Name] promises to be your <br> home away
                     from home.</p>
             </div>
-            <div class="os-div-two-two">
+            <div class="simp-os-div-two-two os-div-two-two">
                 <img src="/extra data/our story img2.jpg" alt="">
             </div>
         </div>
@@ -648,7 +686,7 @@
                 <h1>Planing Us to visit us?</h1>
                 <p>Anticipating your arrival with great excitement! Plan your visit today and immerse yourself in a
                     culinary journey brimming with sensational tastes, inviting ambiance, and unforgettable moments.</p>
-                <button class="contactUs" >Contact US</button>
+                <button class="contactUs">Contact US</button>
                 <!--  <h3>Locate Us on map</h3> -->
                 <!--  <iframe id="Togglemap"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.197592066747!2d-122.08565948517111!3d37.42200477981848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f80d58e4f1f07%3A0xf77311c6158ab7ff!2sGoogleplex!5e0!3m2!1sen!2sus!4v1618838746661!5m2!1sen!2sus"></iframe>
@@ -696,21 +734,23 @@
         </div>
         <div class="get-news-and-offers">
             <br><br><br><br><br><br>
-                <h1>Get News and Offers</h1>
-                <p>We provide special offers and some special discounts on Weekends we also provide some other special  discounts specially for students. <br> So what are you waiting for.? come and grab your discounts and offers  </p>
-                <button id="cUs" class="contactUs">Contact Us</button>
-                <div class="title">
-                    <h1>Have a seat</h1>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Manu</a></li>
-                        <li><a href="#">Pre Order</a></li>
-                    </ul>
-                </div>
-                <div class="copyright">
-                    <p>copyright@priyanshuvatsyan</p>
-                </div>
-                
+            <h1>Get News and Offers</h1>
+            <p>We provide special offers and some special discounts on Weekends we also provide some other special
+                discounts specially for students. <br> So what are you waiting for.? come and grab your discounts and
+                offers </p>
+            <button id="cUs" class="contactUs">Contact Us</button>
+            <div class="title">
+                <h1>Have a seat</h1>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Manu</a></li>
+                    <li><a href="#">Pre Order</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>copyright@priyanshuvatsyan</p>
+            </div>
+
         </div>
     </div>
     </div>

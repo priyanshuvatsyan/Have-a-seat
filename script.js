@@ -170,8 +170,18 @@ setInterval(toggleButtonClickMe, 2000); */
 
 
 var totalCost = 0;
+var countdrink = 0;
 
+function totalItems() {
+    let totalCount = countmains + countsnack + countdrink;
+    document.getElementById("totalcount").innerHTML = totalCount + " items";
+}
 function drinksInput(drinkname, cost) {
+
+    countdrink++;
+    document.getElementById("countdrink").innerText = countdrink;
+    /* console.log("triggered count"); */
+
     var input = document.getElementById('Drinks');
     var selectedDrinks = document.getElementById('selectedDrinks');
     if (input.value === '') {
@@ -180,16 +190,17 @@ function drinksInput(drinkname, cost) {
     } else {
         input.value += ', ' + drinkname;
     }
-
-    var deleteButton = document.createElement('button');
-    deleteButton.textContent = drinkname;
-    deleteButton.onclick = function () {
-        removeItems(drinkname, cost, deleteButton);
-
-    };
-    selectedDrinks.appendChild(deleteButton);
+    /* 
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = drinkname;
+        deleteButton.onclick = function () {
+            removeItems(drinkname, cost, deleteButton);
+    
+        };
+        selectedDrinks.appendChild(deleteButton); */
     totalCost += cost;
     document.getElementById('totalCost').textContent = totalCost;
+    totalItems();
 }
 
 /* function removeItem(itemName, cost, deleteButton, itemType) {
@@ -213,7 +224,7 @@ function drinksInput(drinkname, cost) {
 }
  */
 
-
+/* 
 function removeItems(drinkname, cost, deleteButton) {
     var input = document.getElementById('Drinks');
     var items = input.value.split(', ');
@@ -227,7 +238,7 @@ function removeItems(drinkname, cost, deleteButton) {
     deleteButton.remove();
     console.log("tigger");
 }
-
+ */
 /* function clearInput() {
     var inputs = document.getElementById('Drinks');
     inputs.value = '';
@@ -248,7 +259,12 @@ function removeItems(drinkname, cost, deleteButton) {
 
 
 /** Snacks */
+var countsnack = 0;
 function snacksInput(snackname, cost) {
+    countsnack++;
+    document.getElementById("countsnack").innerText = countsnack;
+    console.log("triggered count");
+
     var inputSnacks = document.getElementById('Snacks');
     var selectedDrinks = document.getElementById('selectedDrinks');
     if (inputSnacks.value === '') {
@@ -258,25 +274,25 @@ function snacksInput(snackname, cost) {
         inputSnacks.value += ', ' + snackname;
     }
 
-    var deleteButton = document.createElement('button');
+    /* var deleteButton = document.createElement('button');
     deleteButton.textContent = snackname;
     deleteButton.onclick = function () {
         console.log("trigger 0");
         removeItemSnack(snackname, cost, deleteButton);
     };
-    selectedDrinks.appendChild(deleteButton);
+    selectedDrinks.appendChild(deleteButton); */
     totalCost += cost;
     document.getElementById('totalCost').textContent = totalCost;
-
+    totalItems();
 }
 
-
+/* 
 function removeItemSnack(snackname, cost, deleteButton) {
-    /*  console.log("trigger 1"); */
+   
     var input = document.getElementById('Snacks');
     var items = input.value.split(', ');
     var i = items.indexOf(snackname);
-    /*  console.log("trigger 2"); */
+    
     if (i != -1) {
         items.splice(i, 1);
         input.value = items.join(', ');
@@ -284,8 +300,8 @@ function removeItemSnack(snackname, cost, deleteButton) {
         document.getElementById('totalCost').textContent = totalCost;
         deleteButton.remove();
     }
-    /* console.log("Final trigger "); */
-}
+   
+} */
 function clearInput(deleteButton) {
     var input = document.getElementById('Drinks');
     input.value = '';
@@ -311,7 +327,11 @@ function clearInput(deleteButton) {
 
 
 /**Mains */
+var countmains = 0;
 function mainsInput(mainname, cost) {
+    countmains++;
+    document.getElementById("countmaincourse").innerText = countmains;
+    /*  console.log("triggered count"); */
     var inputMain = document.getElementById('MainCourse');
     var selectedDrinks = document.getElementById('selectedDrinks');
     if (inputMain.value === '') {
@@ -321,16 +341,16 @@ function mainsInput(mainname, cost) {
         inputMain.value += ', ' + mainname;
     }
 
-    var deleteButton = document.createElement('button');
+    /* var deleteButton = document.createElement('button');
     deleteButton.textContent = mainname;
     deleteButton.onclick = function () {
         removeItem(mainname, cost, deleteButton);
     };
 
-    selectedDrinks.appendChild(deleteButton);
+    selectedDrinks.appendChild(deleteButton); */
     totalCost += cost;
     document.getElementById('totalCost').textContent = totalCost;
-
+    totalItems();
 }
 
 
@@ -355,37 +375,57 @@ function removeItem(mainname, cost, deleteButton) {
  * POP UP    line 597 .modal display in none 
  */
 
-/* 
-var modal =  document.getElementById("popupModal");
+var modal = document.getElementById("popupModal");
 var btn = document.getElementById("submitBtn");
-
 var span = document.getElementsByClassName("close")[0];
 
-window.onload  =function() {
-    modal.style.display = "block";
+window.onload = function () {
+    var storedName = localStorage.getItem("name");
+    var storedContact = localStorage.getItem("contact");
+
+    if (storedName && storedContact) {
+        // Update the name elements
+        var nameElements = document.getElementsByClassName("name");
+        for (let index = 0; index < nameElements.length; index++) {
+            nameElements[index].textContent = storedName;
+        }
+        // Update the contact display element
+        document.getElementById("displayContact").textContent = storedContact;
+        modal.style.display = "none"; // Hide the modal if data is available
+        /*  console.log("Load"); */
+    } else {
+        modal.style.display = "block"; // Show the modal if no data is available
+    }
 }
 
-span.onclick = function() {
+// Function to close the modal when the close button is clicked
+span.onclick = function () {
     modal.style.display = "none";
 }
-btn.onclick  = function() {
-    var name =  document.getElementById("nameInput").value;
-    var contact =  document.getElementById("contactInput").value;
 
-   
-   var nameElement = document.getElementsByClassName("name");
+// Function to handle the submit button click event
+btn.onclick = function () {
+    var name = document.getElementById("nameInput").value;
+    var contact = document.getElementById("contactInput").value;
 
-   for (let index = 0; index < nameElement.length; index++) {
-    nameElement[index].textContent = name;
-    
-   }
+    // Update the name elements
+    var nameElements = document.getElementsByClassName("name");
+    for (let index = 0; index < nameElements.length; index++) {
+        nameElements[index].textContent = name;
+    }
+    // Update the contact display element
+    document.getElementById("displayContact").textContent = contact;
 
-     document.getElementById("displayContact").textContent = contact; 
-    console.log("trigger 1");
-    modal.style.display = "none";
-    console.log("trigger final");
-} 
- */
+    // Store data in localStorage
+    localStorage.setItem("name", name);
+    localStorage.setItem("contact", contact);
+
+    modal.style.display = "none"; // Hide the modal after submission
+    console.log("Saved");
+}
+
+
+
 
 
 /**Do you know */
@@ -443,26 +483,74 @@ window.onclick = function (event) {
     }
 }
 
-function openMap() {
+
+function openCart() {
     console.log("triggered");
-    var map = document.getElementById("Togglemap");
-    var letter = document.getElementsByClassName("aboutUs");
-    for (let i = 0; i < letter.length; i++) {
-        letter[i].style.marginLeft = "-30%";
+    var cartDetails = document.getElementsByClassName("cart-data");
+    for (let i = 0; i < cartDetails.length; i++) {
+        if (cartDetails[i].style.display === "none") {
+            cartDetails[i].style.display = "block";
+        } else {
+            cartDetails[i].style.display = "none";
+        }
     }
-    map.style.display = "block";
+}
+function clearInput(id) {
+    document.getElementById(id).value = '';
+    document.getElementById("totalCost").innerHTML = '0';
+
+    document.getElementById("countmaincourse").innerText = '0';
+    document.getElementById("countsnack").innerText = '0';
+    document.getElementById("countdrink").innerText = '0';
+    document.getElementById("countdrink").innerHTML = '0';
+    document.getElementById("countdrink").innerHTML = '0';
+    document.getElementById("totalcount").innerHTML = '0' + " items";
+    /* console.log("cost triggered"); */
+}
+
+/** pre order */
+function preOrderDisplay() {
+    /*   console.log("triggered"); */
+    var preO = document.getElementById("pre-time")
+    var preObtn = document.getElementById("pre-btn")
+    var reqObtn = document.getElementById("req-btn")
+
+
+
+    if (preO.style.display === "none") {
+        preO.style.display = "block";
+        preObtn.style.background = "#FFA500";
+        reqObtn.style.background = "#868585";
+    } else {
+        preO.style.display = "none";
+        preObtn.style.background = "#868585";
+        reqObtn.style.background = "#FFA500";
+
+        /*  var cartDetails = document.getElementsByClassName("cart-data");
+         for (let i = 0; i < cartDetails.length; i++) {
+             if (cartDetails[i].style.display === "none") {
+                 cartDetails[i].style.display = "block";
+             } else {
+                 cartDetails[i].style.display = "none";
+             }
+         } */
+        console.log("final triggered");
+
+    }
 }
 
 
+
+
 /** Responsive design */
-let clickCount = 1;
 function showMenu() {
+    let clickCount = 1;
 
     let responsiveMenu = document.getElementsByClassName("responsive-menu");
     console.log("triggere 1 ");
 
 
-    console.log(clickCount);
+    /*  console.log(clickCount); */
     console.log(" final trigger  ");
     for (let index = 0; index < responsiveMenu.length; index++) {
         if (clickCount % 2 == 0) {
@@ -472,6 +560,60 @@ function showMenu() {
 
             responsiveMenu[index].style.display = "block";
         }
+        clickCount++;
     }
-    clickCount++;
+    console.log(" final trigger  ");
+    console.log(clickCount);
+}
+function rotateButton(button) {
+    button.classList.toggle('rotate');
+
+    var menuDisp = document.getElementsByClassName("menu-bar-button-menu");
+    for (let index = 0; index < menuDisp.length; index++) {
+        /*  menuDisp[index].style.display = "none" ; */
+
+        if (menuDisp[index].style.display == "none") {
+            menuDisp[index].style.display = "block";
+
+        } else {
+            menuDisp[index].style.display = "none";
+
+        }
+
+    }
+}
+
+
+
+//Payment modal
+/* document.addEventListener('DOMContentLoaded', (event) => {
+    console.log("entered");
+    // Payment modal
+    const payCash = document.getElementById("payment-cash");
+    const selectedPaymentOption = document.getElementById("pay-input");
+
+    function cash() {
+        console.log("entered");
+        selectedPaymentOption.value = "Cash";
+        console.log("working");
+    }
+
+    payCash.addEventListener('click', cash);
+});
+ */
+function payCash() {
+    /* console.log("entered"); */
+    const payCash = document.getElementById("payment-cash");
+    const selectedPaymentOption = document.getElementById("pay-input");
+    const paymentModal = document.getElementById("payment-modal");
+
+    function cash() {
+      /*   console.log("entered"); */
+        selectedPaymentOption.value = "Cash";
+        console.log(selectedPaymentOption.value );
+        paymentModal.style.display = "none";
+       /*  console.log("working"); */
+    }
+
+    payCash.addEventListener('click', cash);
 }
