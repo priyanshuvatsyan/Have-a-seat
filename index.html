@@ -30,7 +30,6 @@
                     <input type="text" id="nameInput" placeholder="Priva" onclick="colorChange(this)">
                     <input type="text" id="contactInput" placeholder="7876641139" onclick="colorChange(this)">
                     <button id="submitBtn">Submit</button>
-
                 </div>
             </div>
         </div>
@@ -474,7 +473,7 @@
 
                             <input class="items " type="text" id="pre-time" placeholder="Enter Time">
                             <div id="selectedDrinks">
-                                <button id="submit" type="submit">Place Order</button>
+                                <button id="submit" type="submit" onclick="paymentModalOpen()" >Place Order</button>
                             </div>
                         </div>
                     </div>
@@ -567,7 +566,7 @@
     <!-- <div class="payment-system"> -->
     <div id="payment-modal" class="Pmodal">
         <div class="payment-modal-content">
-            <span id="payment-modal-close-button" class="close payment-modal-close">&times;</span>
+            <span id="payment-modal-close-id" class="payment-modal-close" onclick="paymentModalCross()">X</span>
             
             <div class="payment-modal-containers qr-container">
                 <img src="img/qr.png" alt="">
@@ -579,7 +578,7 @@
             <input type="text" name="" id="pay-input">
 
             <div class= "payment-modal-containers pay-later-container">
-                <button class="pay-later">Pay Later</button>
+                <button class="pay-later" id="payment-later" onclick="payLater()" >Pay Later</button>
                 <!-- <input type="text" name="" id="pay-later-input">
  -->
             </div>
@@ -743,7 +742,7 @@
                 <h1>Have a seat</h1>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Manu</a></li>
+                    <li><a href="#">Menu</a></li>
                     <li><a href="#">Pre Order</a></li>
                 </ul>
             </div>

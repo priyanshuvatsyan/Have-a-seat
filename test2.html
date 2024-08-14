@@ -1,113 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drink Selection</title>
-    <style>
-        /* CSS styles */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        button {
-            padding: 5px 10px;
-            margin: 5px;
-            font-size: 16px;
-        }
-        input[type="text"] {
-            padding: 8px;
-            font-size: 16px;
-        }
-        #cost {
-            font-size: 14px;
-            color: gray;
-        }
-    </style>
-</head>
-<body>
-    <h2>Select Your Drink</h2>
-    <!-- Drink buttons -->
-    <button onclick="updateInput('Tea', 10)">Tea <span id="teaCost">$10</span></button>
-    <button onclick="updateInput('Coffee', 10)">Coffee <span id="coffeeCost">$10</span></button>
-    <button onclick="updateInput('Hot Chocolate', 20)">Hot Chocolate <span id="chocoCost">$20</span></button>
-    <button onclick="updateInput('Hot Lemonade', 15)">Hot Lemonade <span id="lemonadeCost">$15</span></button>
+// Backend (server.js)
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-    <!-- Input field to display and edit selected drinks -->
-    <div id="selectedDrinks">
-        <input type="text" id="Drinks" placeholder="Selected Drinks">
-        <button id="resetButton" onclick="clearInput()">Reset</button>
-    </div>
-    <div id="cost">Total Cost: $<span id="totalCost">0</span></div>
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
 
-    <!-- JavaScript function to update input field -->
-    <script>
-        var totalCost = 0;
+mongoose.connect('mongodb://localhost:27017/users', { useNewUrlParser: true, useUnifiedTopology: true });
 
-        // Function to handle button clicks
-        function updateInput(drinkName, cost) {
-            var drinkInput = document.getElementById('Drinks');
-            var selectedDrinks = document.getElementById('selectedDrinks');
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String
+});
 
-            if (drinkInput.value === '') {
-                drinkInput.value = drinkName;
-            } else {
-                drinkInput.value += ', ' + drinkName;
-            }
+const User = mongoose.model('User', userSchema);
 
-            // Create delete button for the newly added item
-            var deleteButton = document.createElement('button');
-            deleteButton.textContent = 'X';
-            deleteButton.onclick = function() {
-                removeItem(drinkName, cost, deleteButton);
-            };
+app.post('/api/users', async (req, res) => {
+    const user = new User(req.body);
+    await user.save();
+    res.send(user);
+});
 
-            selectedDrinks.appendChild(deleteButton);
+app.get('/api/users', async (req, res) => {
+    const users = await User.find();
+    res.send(users);
+});
 
-            totalCost += cost;
-            document.getElementById('totalCost').textContent = totalCost;
+app.listen(3001, () => {
+    console.log('Server is running on port 3001');
+});
 
-            // Show the reset button
-            document.getElementById('resetButton').style.display = 'inline-block';
-        }
+// Frontend (pages/index.js)
+import React, { useState } from 'react';
 
-        // Function to remove item from input field
-        function removeItem(drinkName, cost, deleteButton) {
-            var drinkInput = document.getElementById('Drinks');
-            var items = drinkInput.value.split(', ');
-            var index = items.indexOf(drinkName);
-            if (index !== -1) {
-                items.splice(index, 1);
-                drinkInput.value = items.join(', ');
-                totalCost -= cost;
-                document.getElementById('totalCost').textContent = totalCost;
+const Home = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [users, setUsers] = useState([]);
 
-                // Remove the delete button associated with the item
-                deleteButton.remove();
-            }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const res = await fetch('http://localhost:3001/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email })
+        });
+        const data = await res.json();
+        setUsers([...users, data]);
+    };
 
-            // If there are no items left, hide the reset button
-            if (items.length === 0) {
-                document.getElementById('resetButton').style.display = 'none';
-            }
-        }
+    return (
+        <div>
+            <h1>Submit User Details</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <button type="submit">Submit</button>
+            </form>
+            <h2>User List</h2>
+            <ul>
+                {users.map(user => (
+                    <li key={user._id}>{user.name} - {user.email}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
 
-        // Function to clear input field and reset total cost
-        function clearInput() {
-            var drinkInput = document.getElementById('Drinks');
-            drinkInput.value = '';
-            totalCost = 0;
-            document.getElementById('totalCost').textContent = totalCost;
-
-            // Remove all delete buttons
-            var selectedDrinks = document.getElementById('selectedDrinks');
-            var deleteButtons = selectedDrinks.querySelectorAll('button');
-            deleteButtons.forEach(function(button) {
-                button.remove();
-            });
-
-            // Hide the reset button
-            document.getElementById('resetButton').style.display = 'none';
-        }
-    </script>
-</body>
-</html>
+export default Home;

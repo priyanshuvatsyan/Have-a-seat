@@ -467,14 +467,27 @@ function drinks() {
  * Payment modal
  */
 var paymentModal = document.getElementById("payment-modal");
-var placeOrder = document.getElementById("submit");
-var closeCross = document.getElementsByClassName("payment-modal-close")[0];
+//var paymentModal = document.getElementsByClassName("Pmodal");
+var placeOrder = document.getElementById("submit");/* 
+var closeCross = document.getElementsByClassName("payment-modal-close"); */
+var closeCross = document.getElementById("payment-modal-close-id")
 
-placeOrder.onclick = function () {
+/* placeOrder.onclick = function () {
+   
     paymentModal.style.display = "block";
+} */
+function paymentModalOpen() {
+    let paymentModal = document.getElementById("payment-modal");
+  /*   console.log("trr"); */
+    paymentModal.style.display = "block";
+  /*   console.log("trr"); */
 }
-closeCross.onclick = function () {
+
+function paymentModalCross() {
+ let paymentModal = document.getElementById("payment-modal");
+    console.log("trr");
     paymentModal.style.display = "none";
+    console.log("trr");
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
@@ -616,4 +629,27 @@ function payCash() {
     }
 
     payCash.addEventListener('click', cash);
+}
+function payLater() {
+    /* console.log("entered"); */
+    const payLater = document.getElementById("payment-later");
+    const selectedPaymentOption = document.getElementById("pay-input");
+    const paymentModal = document.getElementById("payment-modal");
+
+    function cash() {
+      /*   console.log("entered"); */
+        selectedPaymentOption.value = "After meal";
+        console.log(selectedPaymentOption.value );
+        paymentModal.style.display = "none";
+       /*  console.log("working"); */
+    }
+
+    payLater.addEventListener('click', cash);
+}
+
+function closeModal() {
+    console.log("trigg");   
+       let paymentClose =  document.getElementById("payment-modal");
+       paymentClose.style.display = "none"; 
+       console.log("trigg");     
 }
