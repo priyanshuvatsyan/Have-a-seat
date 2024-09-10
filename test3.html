@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Show Elements One at a Time</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Order Form</title>
 </head>
+<style>
+    #msg{
+        display: none;
+    }
+</style>
 <body>
 
-<div class="man">
-    <i id="pop-man" class="bi bi-emoji-laughing-fill" style="display: none;"></i>
-    <i class="bi bi-emoji-dizzy-fill" style="display: none;"></i>
-    <i class="bi bi-emoji-heart-eyes-fill" style="display: none;"></i>
-</div>
+    <h2>Order Form</h2>
 
-<script>
-    // Get the elements
-    var elements = document.querySelectorAll('.man i');
+    <form id="orderForm">
+        <h1 id="msg" >Form Submitted</h1>
+        <label for="customerName">Name:</label><br>
+        <input type="text" id="customerName" name="customerName" required><br><br>
 
-    // Variable to keep track of current index
-    var currentIndex = 0;
+        <label for="customerEmail">Email:</label><br>
+        <input type="email" id="customerEmail" name="customerEmail" required><br><br>
 
-    // Function to show elements one at a time
-    function showNextElement() {
-        // Hide the previously shown element
-        if (currentIndex > 0) {
-            elements[currentIndex - 1].style.display = 'none';
-        }
-        
-        // Show the current element
-        if (currentIndex < elements.length) {
-            elements[currentIndex].style.display = 'inline-block';
-            currentIndex++;
-        } else {
-            // Reset index to loop infinitely
-            currentIndex = 0;
-        }
-    }
+        <label for="orderDetails">Order Details:</label><br>
+        <textarea id="orderDetails" name="orderDetails" rows="4" cols="50" required></textarea><br><br>
 
-    // Call the function initially to show the first element
-    showNextElement();
+        <button type="submit" id="submitOrder">Place Order</button>
+    </form>
 
-    // Set interval to show elements one at a time
-    var interval = setInterval(showNextElement, 1000); // Change the interval time (in milliseconds) as per your requirement
-</script>
-
+    <!-- Load Firebase SDKs first -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    
+    <!-- Your custom script should be loaded after Firebase -->
+    <script src="./test3.js"></script>
 </body>
 </html>

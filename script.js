@@ -653,3 +653,82 @@ function closeModal() {
        paymentClose.style.display = "none"; 
        console.log("trigg");     
 }
+
+//firebase
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set } from 'firebase/database';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyD3YJTbCE04o5wtzG0tzoWKz9-K36PFmuE",
+    authDomain: "have-a-seat-323fe.firebaseapp.com",
+    projectId: "have-a-seat-323fe",
+    storageBucket: "have-a-seat-323fe.appspot.com",
+    messagingSenderId: "813900293336",
+    appId: "1:813900293336:web:1d6f7927ab151cb8f863ad",
+    measurementId: "G-YVKWCB909G"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(app);
+
+// Reference to the orders node in the database
+const orderDetailsRef = ref(database, 'orderDetails');
+
+// Get the drink order input element
+const drinkOrder = document.getElementById("Drinks");
+
+// Get the submit button
+const submitOrder = document.getElementById('submit');
+
+// Event listener for the submit button
+submitOrder.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    const orderValue = drinkOrder.value;
+
+    if (orderValue) {
+        set(orderDetailsRef, {
+            order: orderValue
+        })
+        .then(() => {
+            console.log("Drink added");
+        })
+        .catch((error) => {
+            console.error("Error adding drink: ", error);
+        });
+    } else {
+        console.error("No drink order to add");
+    }
+});
+
+
+/* 
+// Event listener for the customer details form
+document.getElementById('submitBtn').addEventListener("click", submitCustomerDetails); //details like name and contact
+document.getElementById('submit').addEventListener("click", placeOrder); //order details
+
+function submitCustomerDetails(e) {
+    e.preventDefault();
+
+    const name = getElementByVal("nameInput");
+    const contact = getElementByVal("contactInput");
+    const drinkOrder = getElementByVal("Drinks");
+
+    console.log("entered in db");
+    console.log(name, contact, drinkOrder);
+
+    // Push new data to Firebase to avoid overwriting
+    push(orderDetailsRef, {
+        customerName: name,
+        customerContact: contact,
+        customerDrinkOrder: drinkOrder
+    });
+}
+
+function getElementByVal(id) {
+    return document.getElementById(id).value;
+}
+ */
